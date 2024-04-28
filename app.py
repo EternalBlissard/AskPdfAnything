@@ -21,7 +21,6 @@ QUERY_PROMPT = PromptTemplate(
 )
 PLACEHOLDER = """
 <div style="padding: 30px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-
    <h1 style="font-size: 28px; margin-bottom: 2px; opacity: 0.55;">Powered by MistralxNomic</h1>
    <p style="font-size: 18px; margin-bottom: 2px; opacity: 0.65;">Ask your PDF anything...</p>
 </div>
@@ -79,9 +78,10 @@ def process(query='What is this about?',hist=None,local_path=None):
 
 
 # questionBox = gr.Textbox(label="Enter your question:", placeholder="Type something here...")
-title = '<img src="https://github.com/EternalBlissard/AskPdfAnything/blob/main/src/AskPdfAnything_transparent.png" style="width: 80%; max-width: 550px; height: auto; opacity: 0.55;  "> '
+# title = '<img src="https://github.com/EternalBlissard/AskPdfAnything/blob/main/src/AskPdfAnything_transparent.png" style="width: 80%; max-width: 550px; height: auto; opacity: 0.55;  "> '
+title = '''<img src="https://github.com/EternalBlissard/AskPdfAnything/blob/main/src/AskPdfAnything_transparent.png" >'''
 description = "An LLM based model to make question answering with your pdfs a bit easy"
-article = "Created by [Eternal Bliassard](https://github.com/EternalBlissard)."
+article = "Created by [Eternal Bliassard](https://github.com/EternalBlissard) [official repo](https://github.com/EternalBlissard/AskPdfAnything/blob/main/) ."
 chatbot=gr.Chatbot(height=450, placeholder=PLACEHOLDER, label='Gradio ChatInterface')
 # demo = gr.Interface(fn=predictionMaker, 
 #                 additional_inputs=[questionBox,gr.File()], 
@@ -91,7 +91,18 @@ chatbot=gr.Chatbot(height=450, placeholder=PLACEHOLDER, label='Gradio ChatInterf
 #                 article=article)
 # with gr,Blocks(fill)
 with gr.Blocks(fill_height=True, css=css) as demo:
-    gr.Markdown(title)
+    # gr.Markdown(title)
+    html_logo = """
+    <h1>
+    <div style="text-align: center">
+        AskPdfAnything
+    </div>
+    </h1>
+    """
+    gr.HTML(value=html_logo)
+    gr.Image(elem_id="logo", value="./src/AskPdfAnything_transparent.png",
+    width="40%",
+    height="auto")
     gr.DuplicateButton(value="Duplicate Space for private use", elem_id="duplicate-button")
     gr.ChatInterface(
         fn=process,
