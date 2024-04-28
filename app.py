@@ -21,8 +21,8 @@ QUERY_PROMPT = PromptTemplate(
 )
 PLACEHOLDER = """
 <div style="padding: 30px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-   <img src="https://github.com/EternalBlissard/AskPdfAnything/blob/main/src/AskPdfAnything_transparent.png" style="width: 80%; max-width: 550px; height: auto; opacity: 0.55;  "> 
-   <h1 style="font-size: 28px; margin-bottom: 2px; opacity: 0.55;">MPowered by MistralxNomic</h1>
+
+   <h1 style="font-size: 28px; margin-bottom: 2px; opacity: 0.55;">Powered by MistralxNomic</h1>
    <p style="font-size: 18px; margin-bottom: 2px; opacity: 0.65;">Ask your PDF anything...</p>
 </div>
 """
@@ -79,7 +79,7 @@ def process(query='What is this about?',hist=None,local_path=None):
 
 
 # questionBox = gr.Textbox(label="Enter your question:", placeholder="Type something here...")
-title = "AskPdfAnything"
+title = '<img src="https://github.com/EternalBlissard/AskPdfAnything/blob/main/src/AskPdfAnything_transparent.png" style="width: 80%; max-width: 550px; height: auto; opacity: 0.55;  "> '
 description = "An LLM based model to make question answering with your pdfs a bit easy"
 article = "Created by [Eternal Bliassard](https://github.com/EternalBlissard)."
 chatbot=gr.Chatbot(height=450, placeholder=PLACEHOLDER, label='Gradio ChatInterface')
