@@ -1,0 +1,12 @@
+nomic
+langchain_nomic
+chromadb
+langchain-text-splitters
+unstructured 
+langchain
+unstructured[all-docs]
+transformers
+langchain-core
+langchain-mistralai
+gradio
+accelerate
